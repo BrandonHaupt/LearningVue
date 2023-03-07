@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue Events</title>
+        <link rel="stylesheet" href="./event.css">
+        <link rel="stylesheet" href="./events.scss">
+        <script src="https://unpkg.com/vue@next" defer></script>
+        <script src="vueEvents.js" defer></script>
+    </head>
+<body>
+    <header>
+        <h1>Vue Event</h1>
+    </header>
+
+    <section id="events">
+        <h2>Events in Action</h2>
+        <button v-on:click="add(10)">Add</button>
+        <button v-on:click="subtract(5)">Subtract</button>
+            <!-- When middle clicking it will subtract 5 -->
+        <!-- <button v-on:click.middle="subtract(5)">Subtract</button> -->
+        <p v-once>Starting Counter: {{counter}} </p>
+        <p>Result: {{counter}} </p>
+
+        <!-- allows for event and default value vv  -->
+        <!-- <input type="text" v-on:input="setName($event, 'Tacellaco')" 
+        v-on:keyup.enter="confirmInput" v-bind:value="username" /> -->
+
+        <!-- v-model is a 2-way binding -->
+        <input type="text" v-model="username" />
+        <button v-on:click="resetInput">Reset Input</button>
+
+        <!-- to make the name appear it needs to be the data name not methods name -->
+        <p>Your Name: {{username}}</p>
+
+        <!-- another way to prevent refreshing the form -->
+        <form v-on:submit.prevent="submitForm">
+        <!-- ^^ add to form v-on:submit="submitForm" -->
+            <input type="text">
+            <button>Sign Up</button>
+        </form>
+    </section>
+</body>
+</html>
