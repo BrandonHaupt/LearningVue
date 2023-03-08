@@ -17,9 +17,14 @@
       <h1>Vue Dynamic Styling</h1>
     </header>
     <section id="styling">
-      <div class="demo"></div>
-      <div class="demo"></div>
-      <div class="demo"></div>
+      <!-- making active only true if the boxA is selected but is in the computed properties instead -->
+      <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
+      
+      <!-- making active only true if the boxB is selected -->
+      <div :class="['demo', {active: boxBSelected}]" @click="boxSelected('B')"></div>
+
+      <!-- making active only true if the boxC is selected -->
+      <div class="demo" :class="{active: boxCSelected}" @click="boxSelected('C')"></div>
     </section>
   </body>
 </html>
