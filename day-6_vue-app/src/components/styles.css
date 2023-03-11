@@ -63,3 +63,13 @@ header {
     border-color: #a42249;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
+
+#app button:hover:nth-child(even){
+    border-radius: 10px 0 0 10px;
+    transition: .1s ease-in-out;
+}
+
+#app button:hover:nth-child(odd){
+    border-radius: 0 10px 10px 0;
+    transition: .2s ease-in-out;
+}

@@ -1,7 +1,7 @@
 <template>
     <li>
         <!-- friendIsFavorite is the new prop isFavorite but because it's treated like a const value you cant change it unless you do a work around -->
-        <h2>{{ name }} {{ friendIsFavorite ? '(Favorite)' : '' }}</h2>
+        <h2>{{ name }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
         
         <button @click="toggleFavorite">Toggle Favorite</button>
         <!-- a button that shows and hides the information below -->
@@ -34,6 +34,10 @@
 
         // Same as above but is more indepth and allows more props
         props: {
+            id: {
+                type: String,
+                required: true
+            },
             name: {
                 type: String,
                 required: true
@@ -65,7 +69,6 @@
                 // If we want to add another prop, its treated like a const and cant be changed
                 // You need to work around to be able to change it
                 // You create a new data property and target the new prop data and then you can change it everywhere else
-                friendIsFavorite: this.isFavorite,
             }
         },
 
@@ -75,9 +78,11 @@
                 this.detailsAreVisible = !this.detailsAreVisible  
             },
 
+            // The convention for $emit is to use kavbop case
+            // something-something <------------------^
             toggleFavorite(){
-               this.friendIsFavorite = !this.friendIsFavorite
-            }
+               this.$emit('toggle-favorite', this.id)
+            },
         },
 
     }
