@@ -1,12 +1,17 @@
-
 <template>
   <section>
     <header>
       <h1>My Friend List</h1>
     </header>
     <ul>
-     <friend-contact name="Manuel Lorenz" phone-number="0123 456 7899" email-address="mauel@localhost.com"/>
-     <friend-contact name="Julie Jones" phone-number="655 165 6565" email-address="julie@localhost.com"/>
+     <friend-contact 
+     class="friend"
+     v-for="friend in friends" 
+     :key="friend.id" 
+     :name="friend.name" 
+     :phone-number="friend.phone" 
+     :email-address="friend.email" 
+     :is-favorite="true"/>
     </ul>
   </section>
 </template>
