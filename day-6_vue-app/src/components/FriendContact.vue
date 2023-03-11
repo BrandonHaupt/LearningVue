@@ -10,6 +10,8 @@
             <li><strong>Phone:</strong> {{ phoneNumber }}</li>
             <li><strong>Email:</strong> {{ emailAddress }}</li>
         </ul>
+
+        <button @click="$emit('delete', id)">Delete</button>
     </li>
 </template>
 
@@ -33,6 +35,7 @@
         // },
 
         // Same as above but is more indepth and allows more props
+        // you define the props recieved
         props: {
             id: {
                 type: String,
@@ -63,6 +66,22 @@
             },
         },
 
+        //counterpart to props
+        // you define custom events that might be emitted
+        emits: ['toggle-favorite', 'delete'], // basic form
+
+        // emits: {
+        //     'toggle-favorite': function(id) {
+        //         if(id) {
+        //             return true
+        //         } else {
+        //             // submits a warning if the id is missing on click
+        //             console.warn('ID is missing!')
+        //             return false
+        //         }
+        //     },
+        // }, // more advanced form
+
         data(){
             return{
                 detailsAreVisible: false,
@@ -83,7 +102,11 @@
             toggleFavorite(){
                this.$emit('toggle-favorite', this.id)
             },
-        },
+
+            // deleteFriend() {
+            //     this.$emit('delete', this.id)
+            // }
+        }
 
     }
 </script>
