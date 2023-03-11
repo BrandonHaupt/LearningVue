@@ -5,8 +5,8 @@
       <h1>My Friend List</h1>
     </header>
     <ul>
-     <friend-contact />
-     <friend-contact />
+     <friend-contact name="Manuel Lorenz" phone-number="0123 456 7899" email-address="mauel@localhost.com"/>
+     <friend-contact name="Julie Jones" phone-number="655 165 6565" email-address="julie@localhost.com"/>
     </ul>
   </section>
 </template>
