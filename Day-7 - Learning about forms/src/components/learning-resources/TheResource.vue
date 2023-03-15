@@ -47,6 +47,7 @@
             return {
                 resources: this.storedResources,
                 addResource: this.addResource,
+                deleteResource: this.removeResource
             }
         },
 
@@ -64,6 +65,12 @@
                 }
                 this.storedResources.unshift(newResource)
                 this.selectedTab = 'stored-resources'
+            },
+
+            // DELETE Items
+            removeResource(resId){
+                const resIndex = this.storedResources.findIndex(res => res.id === resId)
+                this.storedResources.splice(resIndex, 1)
             },
         },
 
