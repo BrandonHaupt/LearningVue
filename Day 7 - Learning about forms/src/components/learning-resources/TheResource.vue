@@ -56,6 +56,7 @@
                 this.selectedTab = tab
             },
 
+            // Adding resources
             addResource(title, description, url){
                 const newResource = {
                     id: new Date().toISOString(),

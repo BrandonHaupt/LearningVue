@@ -13,10 +13,6 @@ export default{
         TheHeader,
         TheResource
     },
-
-   methods: {
-    
-   },
 }
 </script>
 

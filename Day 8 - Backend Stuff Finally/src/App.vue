@@ -1,5 +1,8 @@
 <template>
+<!-- This is adding the data -->
   <learning-survey></learning-survey>
+  
+  <!-- This displays the data -->
   <user-experiences></user-experiences>
 </template>
 

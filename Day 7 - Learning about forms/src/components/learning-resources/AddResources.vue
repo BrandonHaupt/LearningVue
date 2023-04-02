@@ -59,7 +59,7 @@ import BaseButton from '../UI/BaseButton.vue'
 import BaseDialog from '../UI/BaseDialog.vue'
 
     export default{
-  components: { BaseDialog, BaseButton },
+        components: { BaseDialog, BaseButton },
         inject: ['addResource'],
 
         data()  {

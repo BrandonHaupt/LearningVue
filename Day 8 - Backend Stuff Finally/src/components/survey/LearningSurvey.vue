@@ -1,18 +1,25 @@
+<!-- This is adding the data -->
+
 <template>
   <section>
     <base-card>
       <h2>How was you learning experience?</h2>
       <form @submit.prevent="submitSurvey">
+
         <div class="form-control">
           <label for="name">Your Name</label>
           <input type="text" id="name" name="name" v-model.trim="enteredName" />
         </div>
+
         <h3>My learning experience was ...</h3>
+
         <div class="form-control">
           <input type="radio" id="rating-poor" value="poor" name="rating" v-model="chosenRating" />
           <label for="rating-poor">Poor</label>
         </div>
+
         <div class="form-control">
+
           <input
             type="radio"
             id="rating-average"
@@ -20,16 +27,22 @@
             name="rating"
             v-model="chosenRating"
           />
+
           <label for="rating-average">Average</label>
+
         </div>
         <div class="form-control">
+
           <input type="radio" id="rating-great" value="great" name="rating" v-model="chosenRating" />
           <label for="rating-great">Great</label>
+
         </div>
+
         <p
           v-if="invalidInput"
         >One or more input fields are invalid. Please check your provided data.</p>
         <p v-if="error">{{error}}</p>
+
         <div>
           <base-button>Submit</base-button>
         </div>
@@ -51,6 +64,7 @@ export default {
       error: null,
     };
   },
+
   // emits: ['survey-submit'],
   methods: {
     submitSurvey() {
@@ -60,18 +74,16 @@ export default {
       }
       this.invalidInput = false;
 
-      // this.$emit('survey-submit', {
-      //   userName: this.enteredName,
-      //   rating: this.chosenRating,
-      // });
-
       this.error = null
       fetch(`${url}/surveys.json`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({name: this.enteredName, rating: this.chosenRating}),
+        body: JSON.stringify({
+          name: this.enteredName, 
+          rating: this.chosenRating
+        }),
       })
       .catch(() => {
         this.error = 'Something went wrong try again later please'
